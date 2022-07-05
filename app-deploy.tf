@@ -8,7 +8,7 @@ resource "null_resource" "app-deploy" {
       type     = "ssh"
       user     = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["SSH_USERNAME"]
       password = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["SSH_PASSWORD"]
-      host     = aws_spot_instance_request.spot.private_ip
+      host     = aws_instance.ami.private_ip
     }
 
     inline = [
