@@ -3,7 +3,6 @@ resource "aws_spot_instance_request" "spot" {
   instance_type          = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
   wait_for_fulfillment   = true
-  iam_instance_profile   = aws_iam_instance_profile.instance-profile.name
 
   tags = {
     Name = "${var.COMPONENT}-ami"
